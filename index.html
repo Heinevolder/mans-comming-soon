@@ -38,12 +38,31 @@
                 color: #8892b0;
             }
 
-            .orange {
+            a {
+                color: #ff9f1c;
+                text-decoration: none;
+            }
+
+            a:hover {
+                text-decoration: underline;
+            }
+
+            .orange-container {
                 position: absolute;
-                width: 120px;
-                height: 120px;
+                left: 50%;
+                top: 50%;
+                animation:
+                    floatX 15s ease-in-out infinite,
+                    floatY 12s ease-in-out infinite;
+            }
+
+            .orange-img {
+                width: 220px;
+                height: 220px;
+                animation: rotate 20s linear infinite;
                 filter: drop-shadow(0 0 15px rgba(255, 159, 28, 0.3));
                 will-change: transform;
+                object-fit: contain;
             }
 
             @keyframes floatX {
@@ -77,30 +96,21 @@
                     transform: rotate(360deg);
                 }
             }
-
-            .orange-container {
-                position: absolute;
-                left: 50%;
-                top: 50%;
-                animation:
-                    floatX 15s ease-in-out infinite,
-                    floatY 12s ease-in-out infinite;
-            }
-
-            .orange {
-                animation: rotate 20s linear infinite;
-            }
         </style>
     </head>
     <body>
         <div class="content">
             <h1>Jeg er på vej</h1>
             <p>
-                Jeg er i gang med at blive bygget 🙂 Indtil da kan I følge med
+                Jeg er i gang med at blive bygget 🙂
+
+            </p>
+            <p>Indtil da kan I følge med
                 på
                 <a
                     href="https://www.instagram.com/martinenebel/"
                     target="_blank"
+                style="color: ;""
                     >@martinenebel</a
                 >
                 på instagram
@@ -108,104 +118,11 @@
         </div>
 
         <div class="orange-container">
-            <svg
-                class="orange"
-                viewBox="0 0 100 100"
-                xmlns="http://www.w3.org/2000/svg"
-            >
-                <!-- Base orange circle -->
-                <circle cx="50" cy="50" r="45" fill="#ff9f1c" />
-
-                <!-- Orange gradient overlay -->
-                <circle cx="50" cy="50" r="45" fill="url(#orangeGradient)" />
-
-                <!-- Orange texture/segments -->
-                <path
-                    d="M50 5 A45 45 0 0 1 95 50"
-                    stroke="#ff8c00"
-                    stroke-width="1.5"
-                    fill="none"
-                    opacity="0.7"
-                />
-                <path
-                    d="M50 5 A45 45 0 0 0 5 50"
-                    stroke="#ff8c00"
-                    stroke-width="1.5"
-                    fill="none"
-                    opacity="0.7"
-                />
-                <path
-                    d="M50 95 A45 45 0 0 0 95 50"
-                    stroke="#ff8c00"
-                    stroke-width="1.5"
-                    fill="none"
-                    opacity="0.7"
-                />
-                <path
-                    d="M50 95 A45 45 0 0 1 5 50"
-                    stroke="#ff8c00"
-                    stroke-width="1.5"
-                    fill="none"
-                    opacity="0.7"
-                />
-                <path
-                    d="M50 5 L50 95"
-                    stroke="#ff8c00"
-                    stroke-width="1.5"
-                    opacity="0.5"
-                />
-                <path
-                    d="M5 50 L95 50"
-                    stroke="#ff8c00"
-                    stroke-width="1.5"
-                    opacity="0.5"
-                />
-
-                <!-- Highlight -->
-                <circle
-                    cx="35"
-                    cy="35"
-                    r="15"
-                    fill="rgba(255, 255, 255, 0.1)"
-                />
-
-                <!-- Dimple texture -->
-                <circle cx="60" cy="30" r="2" fill="#ff8c00" opacity="0.3" />
-                <circle cx="40" cy="60" r="2" fill="#ff8c00" opacity="0.3" />
-                <circle cx="70" cy="55" r="2" fill="#ff8c00" opacity="0.3" />
-                <circle cx="30" cy="45" r="2" fill="#ff8c00" opacity="0.3" />
-
-                <!-- Stem -->
-                <path d="M50 5 Q55 0 60 5 Q55 8 50 5" fill="#2e7d32" />
-
-                <!-- Leaves -->
-                <path d="M60 5 Q70 0 65 8 Q60 10 60 5" fill="#2e7d32" />
-                <path
-                    d="M45 8 Q40 0 55 2"
-                    stroke="#2e7d32"
-                    stroke-width="2"
-                    fill="none"
-                />
-
-                <!-- Gradient definition -->
-                <defs>
-                    <radialGradient
-                        id="orangeGradient"
-                        cx="40%"
-                        cy="40%"
-                        r="60%"
-                    >
-                        <stop
-                            offset="0%"
-                            style="stop-color: #ffc069; stop-opacity: 0.3"
-                        />
-                        <stop
-                            offset="100%"
-                            style="stop-color: #ff9f1c; stop-opacity: 0"
-                        />
-                    </radialGradient>
-                </defs>
-            </svg>
+            <img
+                src="./orange.png"
+                alt="Orange"
+                class="orange-img"
+            />
         </div>
 
         <script>
