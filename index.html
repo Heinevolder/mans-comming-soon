@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Coming Soon</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                min-height: 100vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+                    Roboto, sans-serif;
+                background: #0a192f;
+                overflow: hidden;
+                position: relative;
+            }
+
+            .content {
+                text-align: center;
+                color: white;
+                z-index: 1;
+                padding: 2rem;
+            }
+
+            h1 {
+                font-size: 3rem;
+                margin-bottom: 1rem;
+                color: #ff9f1c;
+            }
+
+            p {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
+                color: #8892b0;
+            }
+
+            .orange {
+                position: absolute;
+                width: 120px;
+                height: 120px;
+                filter: drop-shadow(0 0 15px rgba(255, 159, 28, 0.3));
+                will-change: transform;
+            }
+
+            @keyframes floatX {
+                0%,
+                100% {
+                    transform: translateX(0);
+                }
+                25% {
+                    transform: translateX(calc(50vw - 150px));
+                }
+                75% {
+                    transform: translateX(calc(-50vw + 150px));
+                }
+            }
+
+            @keyframes floatY {
+                0%,
+                100% {
+                    transform: translateY(0);
+                }
+                50% {
+                    transform: translateY(calc(40vh - 150px));
+                }
+            }
+
+            @keyframes rotate {
+                from {
+                    transform: rotate(0deg);
+                }
+                to {
+                    transform: rotate(360deg);
+                }
+            }
+
+            .orange-container {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                animation:
+                    floatX 15s ease-in-out infinite,
+                    floatY 12s ease-in-out infinite;
+            }
+
+            .orange {
+                animation: rotate 20s linear infinite;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <h1>Coming Soon</h1>
+            <p>We're working on something amazing.<br />Stay tuned!</p>
+        </div>
+
+        <div class="orange-container">
+            <svg
+                class="orange"
+                viewBox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <!-- Base orange circle -->
+                <circle cx="50" cy="50" r="45" fill="#ff9f1c" />
+
+                <!-- Orange gradient overlay -->
+                <circle cx="50" cy="50" r="45" fill="url(#orangeGradient)" />
+
+                <!-- Orange texture/segments -->
+                <path
+                    d="M50 5 A45 45 0 0 1 95 50"
+                    stroke="#ff8c00"
+                    stroke-width="1.5"
+                    fill="none"
+                    opacity="0.7"
+                />
+                <path
+                    d="M50 5 A45 45 0 0 0 5 50"
+                    stroke="#ff8c00"
+                    stroke-width="1.5"
+                    fill="none"
+                    opacity="0.7"
+                />
+                <path
+                    d="M50 95 A45 45 0 0 0 95 50"
+                    stroke="#ff8c00"
+                    stroke-width="1.5"
+                    fill="none"
+                    opacity="0.7"
+                />
+                <path
+                    d="M50 95 A45 45 0 0 1 5 50"
+                    stroke="#ff8c00"
+                    stroke-width="1.5"
+                    fill="none"
+                    opacity="0.7"
+                />
+                <path
+                    d="M50 5 L50 95"
+                    stroke="#ff8c00"
+                    stroke-width="1.5"
+                    opacity="0.5"
+                />
+                <path
+                    d="M5 50 L95 50"
+                    stroke="#ff8c00"
+                    stroke-width="1.5"
+                    opacity="0.5"
+                />
+
+                <!-- Highlight -->
+                <circle
+                    cx="35"
+                    cy="35"
+                    r="15"
+                    fill="rgba(255, 255, 255, 0.1)"
+                />
+
+                <!-- Dimple texture -->
+                <circle cx="60" cy="30" r="2" fill="#ff8c00" opacity="0.3" />
+                <circle cx="40" cy="60" r="2" fill="#ff8c00" opacity="0.3" />
+                <circle cx="70" cy="55" r="2" fill="#ff8c00" opacity="0.3" />
+                <circle cx="30" cy="45" r="2" fill="#ff8c00" opacity="0.3" />
+
+                <!-- Stem -->
+                <path d="M50 5 Q55 0 60 5 Q55 8 50 5" fill="#2e7d32" />
+
+                <!-- Leaves -->
+                <path d="M60 5 Q70 0 65 8 Q60 10 60 5" fill="#2e7d32" />
+                <path
+                    d="M45 8 Q40 0 55 2"
+                    stroke="#2e7d32"
+                    stroke-width="2"
+                    fill="none"
+                />
+
+                <!-- Gradient definition -->
+                <defs>
+                    <radialGradient
+                        id="orangeGradient"
+                        cx="40%"
+                        cy="40%"
+                        r="60%"
+                    >
+                        <stop
+                            offset="0%"
+                            style="stop-color: #ffc069; stop-opacity: 0.3"
+                        />
+                        <stop
+                            offset="100%"
+                            style="stop-color: #ff9f1c; stop-opacity: 0"
+                        />
+                    </radialGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <script>
+            const container = document.querySelector(".orange-container");
+
+            // Add some randomness to the animation
+            function updateAnimation() {
+                const xOffset = Math.random() * 100 - 50;
+                const yOffset = Math.random() * 100 - 50;
+                const duration = 15 + Math.random() * 5;
+
+                container.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
+            }
+
+            // Update position every few seconds
+            setInterval(updateAnimation, 5000);
+        </script>
+    </body>
+</html>
